@@ -38,7 +38,7 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".MainScreen"
+            android:name=".Menu"
             android:label="@string/title_activity_main_screen" >
         </activity>
     </application>
