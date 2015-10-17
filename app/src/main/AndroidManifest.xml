@@ -41,6 +41,10 @@
             android:name=".Menu"
             android:label="@string/title_activity_main_screen" >
         </activity>
+        <activity
+            android:name=".ListRestaurant"
+            android:label="@string/title_activity_list_foursquare" >
+        </activity>
     </application>
 
 </manifest>

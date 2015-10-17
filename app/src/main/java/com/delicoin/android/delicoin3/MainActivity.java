@@ -10,6 +10,8 @@ import android.content.pm.Signature;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.CallbackManager;
@@ -33,6 +35,7 @@ public class MainActivity extends Activity {
 
     private TextView info;
     private LoginButton loginButton;
+    private Button btnWithoutLogin;
     private CallbackManager callbackManager;
 
     @Override
@@ -55,10 +58,18 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         info = (TextView)findViewById(R.id.info);
+
+        btnWithoutLogin = (Button) findViewById(R.id.btnWithoutLogin);
+        btnWithoutLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), ListRestaurant.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
         loginButton = (LoginButton)findViewById(R.id.login_button);
-
         loginButton.setReadPermissions("user_friends");
-
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
